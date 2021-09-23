@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Search from './views/search';
+import Search from './views/Home';
 import { useEffect, useState } from 'react';
+import Routes from "./routes";
 
 
 const App = () => {
-  return <Search />
+  return <Routes />
 }
 
 export default App;

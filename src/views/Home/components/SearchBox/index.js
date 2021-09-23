@@ -7,7 +7,7 @@ export default function SearchBox({ onSearch }) {
 
     return (
         <div className="search-box mb-3">
-            <h2 className="search-box-title">Personal Finder</h2>
+            <h2 className="search-box-title">Personal Contact Finder</h2>
             <div className="search-box-inputs">
                 <label>
                     <input className="search-box-input form-control" value={searchText}
