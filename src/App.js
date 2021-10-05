@@ -1,12 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import Search from './views/Home';
-import { useEffect, useState } from 'react';
 import Routes from "./routes";
-
+import ContactsProvider from './context/contacts/Provider';
 
 const App = () => {
-  return <Routes />
+  return (
+    <ContactsProvider>
+      <Routes />
+    </ContactsProvider>
+  );
 }
 
 export default App;
