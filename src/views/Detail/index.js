@@ -1,7 +1,20 @@
-export default function ContactDetail(contact) {
+import { useContext, useEffect } from "react";
+import { useParams } from "react-router";
+import ContactsContext from "../../context/contacts";
 
-    return (
-        <div>
+export default function ContactDetail() {
+    
+    const { getContactsList, contactsList } = useContext(ContactsContext);
+    const { id } = useParams();
+    useEffect(() => { getContactsList().catch(null) }, []);
+
+    const contact = contactsList?.filter(c => {
+        return (Number(c.id) === Number(id))
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const content = contact ? (
+        (<div>
             <h2>{contact.name}</h2>
             <span>{contact.username}</span>
             <div className="list-group p-1">
@@ -20,6 +33,17 @@ export default function ContactDetail(contact) {
 
                 </div>
             </div>
+        </div>
+        ))
+        : ((<div>
+            <p>
+                ID inexistente
+            </p>
+        </div>));
+
+    return (
+        <div>
+            {content}
         </div>
     );
 }

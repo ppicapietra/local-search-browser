@@ -11,7 +11,8 @@ export default async function apiCall (
             headers
         });
 
-        return await response.json();
+        const r = await response.json();
+        return r;
     }
     catch (err) {
         Promise.reject(err);
