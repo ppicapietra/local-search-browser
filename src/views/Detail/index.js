@@ -7,7 +7,9 @@ export default function ContactDetail() {
 
     const { getContactsList, contactsList } = useContext(ContactsContext);
     const { id } = useParams();
-    useEffect(() => { getContactsList().catch(null) }, []);
+    useEffect(() => { 
+        if(contactsList.length === 0) getContactsList().catch(null);
+    console.log(contactsList); }, []);
 
     const history = useHistory();
 
